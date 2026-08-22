@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>COVEDEZ CINEMA</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+  <div class="navbar">
+
+    <div class="brand">
+      COVEDEZ <span>CINEMA</span>
+    </div>
+
+    <div class="search-wrap">
+
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#666"
+        stroke-width="2.4"
+      >
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Buscar películas, salas, horarios…"
+      >
+
+      <button
+        class="search-clear"
+        aria-label="Limpiar búsqueda"
+        onclick="document.getElementById('searchInput').value=''"
+      >
+        <svg
+          width="12"
+          height="12"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#555"
+          stroke-width="3"
+        >
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+    </div>
+
+    <div class="nav-icons">
+
+      <!-- Instagram -->
+      <button aria-label="Instagram" title="Instagram">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"></circle>
+        </svg>
+      </button>
+
+      <!-- X -->
+      <button aria-label="X" title="X">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M18.9 2H22l-7.6 8.7L23.3 22h-6.9l-5.4-6.9L4.8 22H1.7l8.1-9.3L1 2h7.1l4.9 6.3L18.9 2Zm-1.2 18h1.9L7.4 4H5.3l12.4 16Z"
+          ></path>
+        </svg>
+      </button>
+
+      <!-- YouTube -->
+      <button aria-label="YouTube" title="YouTube">
+
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M23 12s0-3.5-.4-5.2c-.3-.9-1-1.6-1.9-1.9C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.7.4c-.9.3-1.6 1-1.9 1.9C1 8.5 1 12 1 12s0 3.5.4 5.2c.3.9 1 1.6 1.9 1.9 1.8.4 8.7.4 8.7.4s6.9 0 8.7-.4c.9-.3 1.6-1 1.9-1.9.4-1.7.4-5.2.4-5.2Z"
+            opacity=".2"
+          ></path>
+
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            d="M23 12s0-3.5-.4-5.2c-.3-.9-1-1.6-1.9-1.9C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.7.4c-.9.3-1.6 1-1.9 1.9C1 8.5 1 12 1 12s0 3.5.4 5.2c.3.9 1 1.6 1.9 1.9 1.8.4 8.7.4 8.7.4s6.9 0 8.7-.4c.9-.3 1.6-1 1.9-1.9.4-1.7.4-5.2.4-5.2Z"
+          ></path>
+
+          <path d="M9.8 15.3 15.8 12 9.8 8.7v6.6Z"></path>
+        </svg>
+
+      </button>
+
+      <!-- Perfil -->
+      <button
+        class="profile-btn"
+        aria-label="Iniciar sesión"
+        title="Iniciar sesión"
+        onclick="openLogin()"
+      >
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+        </svg>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       HERO / CARRUSEL
+  ====================================================== -->
+  <div class="hero">
+
+    <div class="hero-bulbs"></div>
+
+    <div class="slides" id="slides">
+
+
+      <!-- =============================
+           SLIDE 1 - DOCTOR STRANGE
+      ============================== -->
+      <div
+        class="slide active"
+        style="background-image: url('assets/images/doctor_stranger.jpg');"
+      >
+
+        <div class="slide-content">
+
+          <span class="slide-tag">
+            Estreno de la semana
+          </span>
+
+          <h1 class="slide-title">
+            Doctor Strange en el Multiverso de la Locura
+          </h1>
+
+          <div class="slide-meta">
+            <span>Ciencia ficción</span>
+            <span>·</span>
+            <span>2h 14m</span>
+            <span>·</span>
+            <span>Desde el 21 Ago</span>
+          </div>
+
+          <button
+            class="btn-primary"
+            onclick="document.getElementById('cartelera').scrollIntoView()"
+          >
+            Comprar Entradas
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =============================
+           SLIDE 2 - SPIDER-MAN
+      ============================== -->
+      <div
+        class="slide"
+        style="background-image: url('assets/images/spiderman_newday.jpg');"
+      >
+
+        <div class="slide-content">
+
+          <span class="slide-tag">
+            Función especial · Sala IMAX
+          </span>
+
+          <h1 class="slide-title">
+            Spider-Man Brand New Day
+          </h1>
+
+          <div class="slide-meta">
+            <span>Acción</span>
+            <span>·</span>
+            <span>1h 58m</span>
+            <span>·</span>
+            <span>Desde el 24 Ago</span>
+          </div>
+
+          <button
+            class="btn-primary"
+            onclick="document.getElementById('cartelera').scrollIntoView()"
+          >
+            Comprar Entradas
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =============================
+           SLIDE 3 - AVENGERS DOOMSDAY
+      ============================== -->
+      <div
+        class="slide"
+        style="background-image: url('assets/images/Avengers Doomsday.jpg');"
+      >
+
+        <div class="slide-content">
+
+          <span class="slide-tag">
+            Próximo estreno
+          </span>
+
+          <h1 class="slide-title">
+            Avengers Doomsday
+          </h1>
+
+          <div class="slide-meta">
+            <span>Acción / Aventura</span>
+            <span>·</span>
+            <span>2h 05m</span>
+            <span>·</span>
+            <span>Desde el 4 Sep</span>
+          </div>
+
+          <button
+            class="btn-primary"
+            onclick="document.getElementById('estrenos').scrollIntoView()"
+          >
+            Ver Más
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Flechas -->
+    <div
+      class="arrow left"
+      onclick="moveSlide(-1)"
+    >
+      &lsaquo;
+    </div>
+
+    <div
+      class="arrow right"
+      onclick="moveSlide(1)"
+    >
+      &rsaquo;
+    </div>
+
+
+    <!-- Indicadores -->
+    <div
+      class="dots"
+      id="dots"
+    ></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       EN CARTELERA
+  ====================================================== -->
+  <section
+    class="block"
+    id="cartelera"
+  >
+
+    <div class="section-head">
+
+      <div>
+        <span class="eyebrow">
+          Ahora en pantalla
+        </span>
+
+        <h2>
+          En Cartelera
+        </h2>
+      </div>
+
+      <p class="section-sub">
+        Funciones disponibles hoy en todas nuestras salas.
+        Toca un horario para reservar.
+      </p>
+
+    </div>
+
+    <div
+      class="grid"
+      id="cartelera-grid"
+    ></div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PRÓXIMOS ESTRENOS
+  ====================================================== -->
+  <section
+    class="block"
+    id="estrenos"
+    style="background:#0d1226;"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <span class="eyebrow">
+          Agenda tu próxima función
+        </span>
+
+        <h2>
+          Próximos Estrenos
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+        Reserva anticipada disponible desde 48 horas antes del estreno.
+      </p>
+
+    </div>
+
+    <div
+      class="grid"
+      id="estrenos-grid"
+    ></div>
+
+  </section>
+
+
+  <!-- =====================================================
+       MÁS POPULARES
+  ====================================================== -->
+  <section
+    class="block"
+    id="populares"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <span class="eyebrow">
+          Lo que todos están viendo
+        </span>
+
+        <h2>
+          Más Populares
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+        Ranking actualizado según entradas vendidas esta semana.
+      </p>
+
+    </div>
+
+    <div
+      class="rank-list"
+      id="rank-list"
+    ></div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SUCURSALES Y EVENTOS
+  ====================================================== -->
+  <section
+    class="block"
+    id="sucursales"
+    style="background:#0d1226;"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <span class="eyebrow">
+          Vive la experiencia
+        </span>
+
+        <h2>
+          Sucursales &amp; Eventos Especiales
+        </h2>
+
+      </div>
+
+      <p class="section-sub">
+        Salas VIP, promociones activas y nuestras sedes disponibles.
+      </p>
+
+    </div>
+
+
+    <div class="branch-grid">
+
+
+      <!-- Sucursales -->
+      <div class="branch-card map">
+
+        <span class="branch-tag">
+          Sedes Covedez
+        </span>
+
+        <h3>
+          Encuentra tu sala
+        </h3>
+
+        <ul class="branch-list">
+
+          <li>
+            Centro
+            <b>Av. Providencia 1240</b>
+          </li>
+
+          <li>
+            Costanera
+            <b>Av. Andrés Bello 2447</b>
+          </li>
+
+          <li>
+            Norte Plaza
+            <b>Av. Independencia 890</b>
+          </li>
+
+        </ul>
+
+        <span class="link-arrow">
+          Ver mapa completo →
+        </span>
+
+      </div>
+
+
+      <!-- VIP -->
+      <div class="branch-card vip">
+
+        <span class="branch-tag">
+          Sala Premium
+        </span>
+
+        <h3>
+          Experiencia VIP
+        </h3>
+
+        <p>
+          Butacas reclinables, servicio a la sala y pantalla de 22 metros
+          con sonido envolvente Dolby Atmos.
+        </p>
+
+        <span class="link-arrow">
+          Reservar sala VIP →
+        </span>
+
+      </div>
+
+
+      <!-- Promoción -->
+      <div class="branch-card promo">
+
+        <span class="branch-tag">
+          Promoción activa
+        </span>
+
+        <h3>
+          Miércoles 2x1
+        </h3>
+
+        <p>
+          Dos entradas por el precio de una en todas las funciones 2D,
+          todos los miércoles del mes.
+        </p>
+
+        <span class="link-arrow">
+          Ver condiciones →
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer>
+    © 2026 COVEDEZ CINEMA — Todas las funciones sujetas a disponibilidad de sala.
+  </footer>
+
+
+  <!-- =====================================================
+       LOGIN MODAL
+  ====================================================== -->
+  <div
+    class="modal-overlay"
+    id="loginModal"
+  >
+
+    <div class="login-card">
+
+      <button
+        class="modal-close"
+        onclick="closeLogin()"
+        aria-label="Cerrar"
+      >
+        ✕
+      </button>
+
+      <h2>
+        Iniciar Sesión
+      </h2>
+
+
+      <form
+        onsubmit="event.preventDefault(); closeLogin();"
+      >
+
+        <div class="field">
+
+          <label for="email">
+            Correo
+          </label>
+
+          <input
+            type="email"
+            id="email"
+            required
+            autocomplete="email"
+          >
+
+        </div>
+
+
+        <div class="field">
+
+          <label for="pass">
+            Contraseña
+          </label>
+
+          <input
+            type="password"
+            id="pass"
+            required
+            autocomplete="current-password"
+          >
+
+        </div>
+
+
+        <button
+          type="submit"
+          class="login-btn"
+        >
+          Iniciar
+        </button>
+
+      </form>
+
+
+      <p class="login-foot">
+        ¿No tienes una cuenta?
+        <a href="#">Regístrate</a>
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
